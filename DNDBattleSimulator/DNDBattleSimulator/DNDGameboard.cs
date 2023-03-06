@@ -18,7 +18,7 @@ namespace DNDBattleSimulator
         public DNDGameboard(Grid container, int column,int row)
         {
             gameboard = new Grid();
-            gameboard.Background = Brushes.Blue;
+            cells = new Button[boardWidth, boardHeight];
 
             for (int i = 0; i < boardWidth; i++)
             {
@@ -42,8 +42,9 @@ namespace DNDBattleSimulator
                     newCell.BorderBrush = Brushes.Transparent;
                     newCell.BorderThickness = new System.Windows.Thickness(0);
                     newCell.Content = x + "," + y;
+                    newCell.Tag = x + "," + y;
                     cells[x,y] = newCell;
-                    gameboard.Children.Add(newCell);
+                    gameboard.Children.Add(cells[x, y]);
                 }
             }
         }
