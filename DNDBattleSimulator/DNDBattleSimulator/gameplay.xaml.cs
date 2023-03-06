@@ -19,10 +19,26 @@ namespace DNDBattleSimulator
     /// </summary>
     public partial class gameplay : Window
     {
+        Game mainGame;
+        DNDGameboard board;
         public gameplay()
         {
             InitializeComponent();
-            DNDGameboard board = new DNDGameboard(layoutGrid,0,0);
+            board = new DNDGameboard(layoutGrid,0,0);
+            mainGame = new Game();
+            mainGame.addCharacter(new Character("player-1", false),new Coordinate(0,0));
+            mainGame.addCharacter(new Character("player-2", false), new Coordinate(1, 0));
+            mainGame.addCharacter(new Character("player-3", false), new Coordinate(2, 0));
+            mainGame.addCharacter(new Character("mob-1", true), new Coordinate(0, 7));
+            mainGame.addCharacter(new Character("mob-2", true), new Coordinate(1, 7));
+            mainGame.addCharacter(new Character("mob-3", true), new Coordinate(2, 7));
+
+        }
+
+        private void nextTurn_Click(object sender, RoutedEventArgs e)
+        {
+            mainGame.nextTurn();
+            board.refreshGameBoard(mainGame);
         }
     }
 }

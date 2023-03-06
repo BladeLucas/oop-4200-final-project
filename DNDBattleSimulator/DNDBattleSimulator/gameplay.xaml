@@ -11,5 +11,6 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
+        <Button x:Name="nextTurn" Content="nextTurn" Width="100" Height="50" Grid.Column="1" Click="nextTurn_Click"/>
     </Grid>
 </Window>

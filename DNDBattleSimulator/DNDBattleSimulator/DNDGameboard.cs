@@ -15,7 +15,7 @@ namespace DNDBattleSimulator
         public Grid gameboard;
         public Button[,] cells;
 
-        public DNDGameboard(Grid container, int column,int row)
+        public DNDGameboard(Grid container, int column, int row)
         {
             gameboard = new Grid();
             cells = new Button[boardWidth, boardHeight];
@@ -32,9 +32,9 @@ namespace DNDBattleSimulator
 
             container.Children.Add(gameboard);
 
-            for (int y = 0;y < boardHeight;y++)
+            for (int y = 0; y < boardHeight; y++)
             {
-                for (int x = 0; x < boardWidth;x++)
+                for (int x = 0; x < boardWidth; x++)
                 {
                     Button newCell = new Button();
                     newCell.SetValue(Grid.ColumnProperty, x);
@@ -43,10 +43,47 @@ namespace DNDBattleSimulator
                     newCell.BorderThickness = new System.Windows.Thickness(0);
                     newCell.Content = x + "," + y;
                     newCell.Tag = x + "," + y;
-                    cells[x,y] = newCell;
+                    cells[x, y] = newCell;
                     gameboard.Children.Add(cells[x, y]);
                 }
             }
+        }
+
+        public void refreshGameBoard(Game game)
+        {
+            // resets board
+            for (int y = 0; y < boardHeight; y++)
+            {
+                for (int x = 0; x < boardWidth; x++)
+                {
+                    cells[x, y].Content = "";
+                    cells[x, y].Background = Brushes.LightGray;
+                }
+            }
+
+            foreach (KeyValuePair<string, Character> entry in game.characters)
+            {
+                string characterName = entry.Key;
+                Coordinate characterPostion = game.characterPostions[characterName];
+                Button targetCell = cells[characterPostion.X, characterPostion.Y];
+                targetCell.Content = characterName;
+
+                if (characterName == game.activeCharacter)
+                {
+                    if (game.characters[game.activeCharacter].NPC)
+                    {
+                        targetCell.Background = Brushes.Red;
+                    }
+                    else
+                    {
+                        targetCell.Background = Brushes.Blue;
+                    }
+                }else
+                {
+                    targetCell.Background = Brushes.LightGray;
+                }
+            }
+
         }
     }
 }
