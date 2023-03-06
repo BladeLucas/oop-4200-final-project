@@ -1,5 +1,5 @@
 ﻿DNDBattleSimulator
-1.0.0.0
+
 
 winexe
 C#
@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET5_0;NETCOREAPP
 C:\Users\mattt\OneDrive - Durham College\Winter 2023\OOP-4200\oop-4200-final-project\DNDBattleSimulator\DNDBattleSimulator\App.xaml
 2778920988
 
-7-1218829721
+5-359330269
 193-20121344
 Gameplay.xaml;MainWindow.xaml;
 
-True
+False
 

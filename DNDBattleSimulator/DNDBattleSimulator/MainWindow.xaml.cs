@@ -23,6 +23,13 @@ namespace DNDBattleSimulator
         public MainWindow()
         {
             InitializeComponent();
+
+        }
+
+        private void openGameplay_Click(object sender, RoutedEventArgs e)
+        {
+            gameplay window = new gameplay();
+            window.Show();
         }
     }
 }

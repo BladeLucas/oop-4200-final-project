@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:DNDBattleSimulator"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+    <Grid x:Name="layoutGrid">
+        <Button x:Name="openGameplay" Content="gameplay window" Click="openGameplay_Click" Width="100" Height="50"/>
     </Grid>
 </Window>

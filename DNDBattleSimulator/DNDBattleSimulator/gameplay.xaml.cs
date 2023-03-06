@@ -22,6 +22,7 @@ namespace DNDBattleSimulator
         public gameplay()
         {
             InitializeComponent();
+            DNDGameboard board = new DNDGameboard(layoutGrid,0,0);
         }
     }
 }
