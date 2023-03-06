@@ -39,7 +39,10 @@ namespace DNDBattleSimulator
                     Button newCell = new Button();
                     newCell.SetValue(Grid.ColumnProperty, x);
                     newCell.SetValue(Grid.RowProperty, y);
+                    newCell.BorderBrush = Brushes.Transparent;
+                    newCell.BorderThickness = new System.Windows.Thickness(0);
                     newCell.Content = x + "," + y;
+                    cells[x,y] = newCell;
                     gameboard.Children.Add(newCell);
                 }
             }
