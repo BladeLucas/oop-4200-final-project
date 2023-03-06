@@ -10,8 +10,8 @@ namespace DNDBattleSimulator
 {
     class DNDGameboard
     {
-        public const int boardWidth = 8;
-        public const int boardHeight = 8;
+        public const int boardWidth = 10;
+        public const int boardHeight = 10;
         public Grid gameboard;
         public Button[,] cells;
 
